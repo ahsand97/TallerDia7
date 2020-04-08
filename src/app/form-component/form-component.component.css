@@ -1,0 +1,16 @@
+#centrar_formulario{
+    text-align: center;
+  }
+
+#userForm{
+    margin-top: 20px;
+}
+
+.separarField{
+    margin-right: 20px;
+}
+
+#divBoton{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}

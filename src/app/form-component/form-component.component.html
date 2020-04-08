@@ -1,0 +1,25 @@
+    <form id="userForm" [formGroup]="userForm" #formDirective="ngForm" (ngSubmit)="click(formDirective); userForm.reset()" autocomplete="off">
+        <div id="centrar_formulario">
+            <mat-form-field class="separarField">
+                <mat-label for="usuario" class="text-info">Usuario:</mat-label><br>
+                <input matInput type="text" formControlName="usuario">
+                <mat-error *ngIf="(usuario.dirty || usuario.touched) && usuario.invalid && usuario.errors.required">Escribe un usuario</mat-error>
+                <mat-error *ngIf="(usuario.dirty || usuario.touched) && usuario.invalid && usuario.errors.minlength">El usuario debe contener mínimo 4 caracteres</mat-error>
+                <mat-error *ngIf="(usuario.dirty || usuario.touched) && usuario.invalid && usuario.errors.maxlength">El usuario debe contener máximo 20 caracteres</mat-error>
+            </mat-form-field>
+            <mat-form-field class="separarField">
+                <mat-label for="nombre" class="text-info">Nombre:</mat-label><br>
+                <input matInput type="text" formControlName="nombre">
+                <mat-error *ngIf="(nombre.dirty || nombre.touched) && nombre.invalid && nombre.errors.required">Escribe un nombre</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label for="email" class="text-info">Email:</mat-label><br>
+                <input matInput type="email" formControlName="email">
+                <mat-error *ngIf="(email.dirty || email.touched) && email.invalid && email.errors.required">Escribe un email</mat-error>
+                <mat-error *ngIf="(email.dirty || email.touched) && email.invalid && email.errors.email">Escribe un email válido</mat-error>
+            </mat-form-field>
+            <div id="divBoton">
+                <button mat-raised-button color="primary" type="submit" [disabled]="!userForm.valid">Añadir</button>
+            </div>
+        </div>
+    </form>
