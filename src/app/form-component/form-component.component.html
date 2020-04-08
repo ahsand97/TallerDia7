@@ -14,7 +14,7 @@
             </mat-form-field>
             <mat-form-field>
                 <mat-label for="email" class="text-info">Email:</mat-label><br>
-                <input matInput type="email" formControlName="email">
+                <input #inputEmail matInput type="email" formControlName="email">
                 <mat-error *ngIf="(email.dirty || email.touched) && email.invalid && email.errors.required">Escribe un email</mat-error>
                 <mat-error *ngIf="(email.dirty || email.touched) && email.invalid && email.errors.email">Escribe un email válido</mat-error>
             </mat-form-field>

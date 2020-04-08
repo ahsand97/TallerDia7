@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormGroupDirective } from '@angular/forms';
 import { Usuario } from '../models/user';
 
@@ -9,6 +9,7 @@ import { Usuario } from '../models/user';
 })
 export class FormComponentComponent implements OnInit {
   userForm: FormGroup;
+  @ViewChild('inputEmail') inputEmail: ElementRef;
 
 	@Output() redirect:EventEmitter<any> = new EventEmitter();
 
@@ -30,6 +31,7 @@ export class FormComponentComponent implements OnInit {
 		let user = new Usuario(this.usuario.value,this.nombre.value,this.email.value);
 		this.redirect.emit(user);
 		formDirective.resetForm();
+		this.inputEmail.nativeElement.blur();
 		this.userForm.reset();
 	}
 
